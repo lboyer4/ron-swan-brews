@@ -1,10 +1,21 @@
 import React from 'react';
 import Card from '../Card';
+import { connect } from 'react-redux'
 
-const BreweryHolder = () => {
+export const BreweryHolder = (props) => {
+	let brewCard = props.breweries.map(brewery => {
+			return <Card {...brewery} key={brewery.id}/>
+		})
+	
 	return (
-		<Card />
-		)
+		<section className="card-holder">
+			{brewCard}
+		</section>
+	)
 }
 
-export default BreweryHolder;
+const mapStateToProps = (state) => ({
+	breweries: state.breweries
+})
+
+export default connect(mapStateToProps)(BreweryHolder);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './_App.scss';
 import Header from '../../components/Header';
+import BreweryHolder from '../BreweryHolder';
 
 class App extends Component {
 	constructor() {
@@ -19,9 +20,10 @@ class App extends Component {
 
 	render() {
 		return(
-			<body>
+			<div>
 				<Header />
-			</body>
+				<BreweryHolder />
+			</div>
 		)
 	}
 }

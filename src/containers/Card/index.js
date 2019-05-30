@@ -9,7 +9,6 @@ class Card extends Component{
 	}
 	render(props){
 		const { name, city, phone, street, type } = this.props;
-		console.log(this.props)
 		return (
 			<article className="brew-card"> 
 				<h3 className="brew name">{name}</h3>

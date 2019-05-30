@@ -17,6 +17,7 @@ class Card extends Component{
 				<h6 className="brew city">{city}</h6>
 				<h6 className="brew street">{street}</h6>
 				<h6 className="brew number">{phone}</h6>
+				<button> favorite </button>
 			</article>
 			)
 	}

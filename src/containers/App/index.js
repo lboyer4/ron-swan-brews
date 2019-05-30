@@ -4,7 +4,7 @@ import Header from '../../components/Header';
 import BreweryHolder from '../BreweryHolder';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { setBreweries } from '../../actions'
+import { setBreweries, setQuotes } from '../../actions'
 
 class App extends Component {
 	constructor() {
@@ -19,10 +19,18 @@ class App extends Component {
 		fetch('https://api.openbrewerydb.org/breweries?by_state=colorado')
     .then(response => response.json())
     .then(breweries => this.setDispatchBreweries(breweries))
-	}
+
+    fetch('https://ron-swanson-quotes.herokuapp.com/v2/quotes/30')
+    .then(response => response.json())
+    .then(quotes => this.setDispatchQuotes(quotes))
+  	}
 
 	setDispatchBreweries = (breweries) => {
 		this.props.setBreweries(breweries)
+	}
+
+	setDispatchQuotes = (quotes) => {
+		this.props.setQuotes(quotes)
 	}
 
 	render() {
@@ -36,7 +44,8 @@ class App extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-	setBreweries: (breweries) => dispatch(setBreweries(breweries))
+	setBreweries: (breweries) => dispatch(setBreweries(breweries)),
+	setQuotes: (quotes) => dispatch(setQuotes(quotes))
 })
 
 export default connect(null, mapDispatchToProps)(App)

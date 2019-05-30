@@ -1,0 +1,24 @@
+form {
+	height: 100px;
+	width: 400px;
+}
+
+.button-holder {
+	display: flex;
+	justify-content: space-between;
+}
+
+button {
+	height: 35px;
+ 	width: 130px;
+}
+
+label {
+	color: #fff;
+}
+
+input {
+	width: 390px;
+	height: 35px;
+	margin: 5px;
+}

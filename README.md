@@ -8,8 +8,9 @@ To install, first clone down this repo `https://github.com/lboyer4/ron-swan-brew
 next, `run npm install`
 
 
-### Screenshots && Wireframe
+### Screenshots 
 
+### Wireframe
 ![image of the UI wireframe](./src/utils/images/Wire-Frame-Ui.png)
 
 ### Learning Goals

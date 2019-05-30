@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import { setBreweries, setQuotes } from '../../actions';
 import { fetchData } from '../../utils/fetch-data.js';
 
-class App extends Component {
+export class App extends Component {
 	constructor() {
 		super();
 		this.state = {

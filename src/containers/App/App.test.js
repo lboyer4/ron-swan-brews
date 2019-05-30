@@ -1,3 +1,4 @@
+import React from 'react';
 import { shallow } from 'enzyme';
 import { App, mapDispatchToProps, mapStateToProps } from './index.js';
 
@@ -7,18 +8,18 @@ describe('App', () => {
 	let mockSetQuotes;
 
 	beforeEach (() => {
-		mockSetBreweries = jest.fn()
-		mockSetQuotes = jest.fn()
+		mockSetBreweries = jest.fn();
+		mockSetQuotes = jest.fn();
 
 		wrapper = shallow(
 			<App 
 				setBreweries={mockSetBreweries}
 				setQuotes={mockSetQuotes}
-				/>
-			)
+			/>
+		)
 	})
 
 	it('should match snapshots', () => {
-		
-	})
+		expect(wrapper).toMatchSnapshot();
+	});
 })

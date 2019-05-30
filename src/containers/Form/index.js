@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './_Form.scss'
 
 class Form extends Component {
 	constructor() {
@@ -14,7 +15,7 @@ class Form extends Component {
 				<label for="search"> Search Here </label>
 				<input type="text" id="search"
 				placeholder="Search for breweries in a city near you..." />
-				<div>
+				<div className="button-holder">
 					<button>
 						Search
 					</button>

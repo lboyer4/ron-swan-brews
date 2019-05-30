@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import './_App.scss';
 import Header from '../../components/Header';
-import BreweryHolder from '../BreweryHolder';
+import BreweryHolder from './../breweryHolder';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { setBreweries, setQuotes } from '../../actions'
+import { setBreweries, setQuotes } from '../../actions';
+import { fetchData } from '../../utils/fetch-data.js';
 
 class App extends Component {
 	constructor() {
@@ -16,22 +17,23 @@ class App extends Component {
 	}
 
 	componentDidMount = () => {
-		fetch('https://api.openbrewerydb.org/breweries?by_state=colorado')
-    .then(response => response.json())
-    .then(breweries => this.setDispatchBreweries(breweries))
-
-    fetch('https://ron-swanson-quotes.herokuapp.com/v2/quotes/30')
-    .then(response => response.json())
-    .then(quotes => this.setDispatchQuotes(quotes))
+		this.handleBreweries()
+		this.handleQuotes()
   	}
 
-	setDispatchBreweries = (breweries) => {
-		this.props.setBreweries(breweries)
-	}
+  	handleBreweries = () => {
+  		const url = 'https://api.openbrewerydb.org/breweries?by_state=colorado'
+  		fetchData(url)
+  		.then(breweries => this.props.setBreweries(breweries))
+  	}
 
-	setDispatchQuotes = (quotes) => {
-		this.props.setQuotes(quotes)
-	}
+  	handleQuotes = () => {
+  		const url = 'https://ron-swanson-quotes.herokuapp.com/v2/quotes/30';
+  		fetchData(url)
+  		.then(quotes => this.props.setQuotes(quotes))
+  	}
+
+
 
 	render() {
 		return(

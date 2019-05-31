@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '../Card';
 import { connect } from 'react-redux'
+import './_BreweryHolder.scss'
 
 export const BreweryHolder = (props) => {
 	let allCards = props.breweries.map(brewery => {

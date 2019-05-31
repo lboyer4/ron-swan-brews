@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import './_Card.scss';
 
 class Card extends Component{
 	constructor() {
@@ -16,12 +17,6 @@ class Card extends Component{
 						{name}
 					</h3>
 				</NavLink>
-				<p className="brew type">{brewery_type}</p>
-				<h6 className="brew city">{city}</h6>
-			
-				<h6 className="brew street">{street}</h6>
-				<h6 className="brew number">{phone}</h6>
-				<button> favorite </button>
 			</article>
 		)
 	}

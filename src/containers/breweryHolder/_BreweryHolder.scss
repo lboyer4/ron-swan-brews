@@ -1,0 +1,10 @@
+section {
+	height: 700px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.card-holder {
+	background-image: url('../../utils/images/ronswanpadd.png');
+	background-size: cover;
+}

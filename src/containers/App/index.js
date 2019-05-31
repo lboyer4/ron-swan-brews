@@ -45,7 +45,7 @@ export class App extends Component {
 	}
 }
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
 	setBreweries: (breweries) => dispatch(setBreweries(breweries)),
 	setQuotes: (quotes) => dispatch(setQuotes(quotes))
 })

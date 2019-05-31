@@ -1,16 +1,25 @@
 import React, { Component } from 'react';
 import './_Form.scss'
+import { connect } from 'react-redux';
+import { setSearch } from '../../actions';
 
 class Form extends Component {
 	constructor() {
 		super();
 		this.state = {
-			search: ''
+			search: '',
+			city: ''
 		}
 	}
 
 	updateSearch = (e) => {
-		console.log(e.target.value)
+		this.setState({search: e.target.value})
+		this.setSearch(e.target.value)
+	}
+
+	setSearch = (search) => {
+		console.log(search)
+		this.props.setSearch(search)
 	}
 
 
@@ -24,12 +33,16 @@ class Form extends Component {
 					<button>
 						Search
 					</button>
-					<input type="button" value="Show All" onClick={this.updateSearch} />
-					<input type="button" value="Show Favorites" onClick={this.updateSearch } />
+					<input type="button" value="Show All" onClick={ this.updateSearch } />
+					<input type="button" value="Show Favorites" onClick={ this.updateSearch } />
 				</div>
 			</form>
 			)
 	}
 }
 
-export default Form; 
+export const mapDispatchToProps = (dispatch) => ({
+	setSearch: (search) => dispatch(setSearch(search))
+})
+
+export default connect(null, mapDispatchToProps)(Form)

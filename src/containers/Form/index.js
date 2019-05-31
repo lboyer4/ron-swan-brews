@@ -9,6 +9,11 @@ class Form extends Component {
 		}
 	}
 
+	updateSearch = (value) => {
+		console.log(value)
+	}
+
+
 	render(){
 		return(
 			<form>
@@ -19,9 +24,7 @@ class Form extends Component {
 					<button>
 						Search
 					</button>
-					<button>
-						Show All
-					</button>
+					<input type="button" value="Show All" onClick={this.updateSearch} />
 					<button> 
 						Show Favorites
 					</button>

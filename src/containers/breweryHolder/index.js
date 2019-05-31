@@ -3,9 +3,13 @@ import Card from '../Card';
 import { connect } from 'react-redux'
 
 export const BreweryHolder = (props) => {
-	let brewCard = props.breweries.map(brewery => {
+	let allCards = props.breweries.map(brewery => {
 			return <Card {...brewery} key={brewery.id}/>
 		})
+	let showCard = props.search === 'Show All' && allCards
+	
+
+	//randomnumber quote
 	let min = Math.ceil(1);
   let max = Math.floor(30);
   let randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -14,14 +18,15 @@ export const BreweryHolder = (props) => {
 	return (
 		<section className="card-holder">
 			<h1>"{quote}"</h1>
-			{brewCard}
+			{showCard}
 		</section>
 	)
 }
 
 const mapStateToProps = (state) => ({
 	breweries: state.breweries,
-	quotes: state.quotes
+	quotes: state.quotes,
+	search: state.search
 })
 
 export default connect(mapStateToProps)(BreweryHolder);

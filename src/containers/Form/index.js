@@ -9,15 +9,15 @@ class Form extends Component {
 		}
 	}
 
-	updateSearch = (value) => {
-		console.log(value)
+	updateSearch = (e) => {
+		console.log(e.target.value)
 	}
 
 
 	render(){
 		return(
 			<form>
-				<label for="search"> Search Here </label>
+				<label htmlFor="search"> Search Here </label>
 				<input type="text" id="search"
 				placeholder="Search for breweries in a city near you..." />
 				<div className="button-holder">
@@ -25,9 +25,7 @@ class Form extends Component {
 						Search
 					</button>
 					<input type="button" value="Show All" onClick={this.updateSearch} />
-					<button> 
-						Show Favorites
-					</button>
+					<input type="button" value="Show Favorites" onClick={this.updateSearch } />
 				</div>
 			</form>
 			)

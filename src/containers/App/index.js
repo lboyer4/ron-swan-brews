@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setBreweries, setQuotes } from '../../actions';
 import { fetchData } from '../../utils/fetch-data.js';
+import { Route } from 'react-router-dom';
+import BreweryDetails from './../BreweryDetails'
 
 export class App extends Component {
 	constructor() {
@@ -38,16 +40,33 @@ export class App extends Component {
 	render() {
 		return(
 			<div>
-				<Header />
-				<BreweryHolder />
+				<Route path = '/' component = { Header } />
+				<Route exact path = '/' component = { BreweryHolder } />
+				<Route exact path = '/breweries/:id' render = {( { match }) => {
+					const selectedBrewery = this.props.breweries.find(brewery => {
+						return brewery.id === parseInt(match.params.id)
+					})
+					if(selectedBrewery) {
+						console.log('selected', selectedBrewery)
+						return <BreweryDetails
+							{ ...selectedBrewery }
+						/>
+					}
+				}}
+				/>
+{/*				<Header />
+				<BreweryHolder />*/}
 			</div>
 		)
 	}
 }
+export const mapStateToProps = (state) => ({
+	breweries: state.breweries
+})
 
 export const mapDispatchToProps = (dispatch) => ({
 	setBreweries: (breweries) => dispatch(setBreweries(breweries)),
 	setQuotes: (quotes) => dispatch(setQuotes(quotes))
 })
 
-export default connect(null, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App)

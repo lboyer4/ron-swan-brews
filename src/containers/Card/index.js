@@ -18,6 +18,7 @@ class Card extends Component{
 				</NavLink>
 				<p className="brew type">{brewery_type}</p>
 				<h6 className="brew city">{city}</h6>
+			
 				<h6 className="brew street">{street}</h6>
 				<h6 className="brew number">{phone}</h6>
 				<button> favorite </button>

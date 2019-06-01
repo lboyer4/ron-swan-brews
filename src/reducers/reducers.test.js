@@ -1,4 +1,6 @@
 import { breweryReducer } from './breweryReducer.js';
+import { quotesReducer } from './quotesReducer.js';
+import { searchReducer } from './searchReducer.js';
 import * as actions from '../actions';
 
 describe('breweryReducer', () => {
@@ -30,9 +32,10 @@ describe('quotesReducer', () => {
 	it('should return state with and array of quotes', () => {
 		let expected = [
 			'quote one',
-			'qhote two'
+			'quote two'
 		];
-		const result = quotesReducer(undefined, setQuotes(expected));
+
+		const result = quotesReducer(undefined, actions.setQuotes(expected));
 
 		expect(result).toEqual(expected);
 	});
@@ -47,13 +50,13 @@ describe('searchReducer', () => {
 
 	it('should return a string of a search query', () => {
 		let expected = 'Denver';
-		const result = searchReducer(undefined, setSearch(expected));
+		const result = searchReducer(undefined, actions.setSearch(expected));
 		expect(result).toEqual(expected);
 	});
 });
 
 describe('rootReducer', () => {
-	
+
 })
 
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './_Form.scss'
 import { connect } from 'react-redux';
 import { setSearch } from '../../actions';
+import { NavLink } from 'react-router-dom';
 
 class Form extends Component {
 	constructor() {
@@ -33,7 +34,9 @@ class Form extends Component {
 					<button>
 						Search
 					</button>
-					<input type="button" value="Show All" onClick={ this.updateSearch } />
+					<NavLink to="/show-all">
+						<input type="button" value="Show All" onClick={ this.updateSearch } />
+					</NavLink>
 					<input type="button" value="Show Favorites" onClick={ this.updateSearch } />
 				</div>
 			</form>

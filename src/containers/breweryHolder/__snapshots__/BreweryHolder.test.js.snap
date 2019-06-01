@@ -1,3 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BreweryHolder should match snapshots 1`] = `undefined`;
+exports[`BreweryHolder should match snapshots 1`] = `
+<section
+  className="card-holder"
+>
+  <h1
+    className="quote"
+  >
+    "
+    "
+  </h1>
+  <Component />
+  <Component />
+</section>
+`;

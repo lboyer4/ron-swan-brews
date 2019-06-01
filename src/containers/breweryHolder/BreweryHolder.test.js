@@ -2,27 +2,36 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { BreweryHolder, mapStateToProps } from './index.js';
 
-let mockBreweries = [ 
-	{
-		brewery: 'brew1'
-	},
-	{
-		brewery: 'brew2'
-	}
-]
+
 describe('BreweryHolder', () => {
 	let wrapper;
 	let mockBreweries;
+	let mockQuotes;
 
 	beforeEach(() => {
+		let mockBreweries = [ 
+			{
+				brewery: 'brew1'
+			},
+			{
+				brewery: 'brew2'
+			}
+		]
+
+		let mockQuotes = [
+			'quote one',
+			'quote two'
+		]
+
 		wrapper = shallow(
 			<BreweryHolder
-				breweries={mockBreweries}
+				breweries = {mockBreweries}
+				quotes = {mockQuotes}
 			/>
 		)
 	})
 
-	it.skip('should match snapshots', () => {
+	it('should match snapshots', () => {
 		expect(wrapper).toMatchSnapshot();
 	})
 })

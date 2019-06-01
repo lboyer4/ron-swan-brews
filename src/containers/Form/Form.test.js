@@ -79,10 +79,6 @@ describe('Form', () => {
 
 	describe('setStoreSearch', () => {
 		it('should dispatch setSearch', () => {
-			const mockSetSearch = jest.fn();
-			const mockSearch = {
-				search: 'Denver'
-			}
 			wrapper = shallow(
 			<Form 
 				search= 'Denver'
@@ -90,9 +86,19 @@ describe('Form', () => {
 				setSearch={jest.fn()}
 			/>
 		)
-			wrapper.instance().setStoreSearch('Denver')
-			expect(wrapper.instance().props.setSearch).toHaveBeenCalledWith('Denver')
-		})
-	})
+			wrapper.instance().setStoreSearch('Denver');
+			expect(wrapper.instance().props.setSearch).toHaveBeenCalledWith('Denver');
+		});
+	});
 	
+	describe('mapDispatchToProps', () => {
+		it('should dispatch setSearch', () => {
+			const mockDispatch = jest.fn();
+			const actionToDispatch = setSearch('Denver');
+			const mappedProps = mapDispatchToProps(mockDispatch)
+
+			mappedProps.setSearch('Denver');
+			expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+		});
+	});
 });

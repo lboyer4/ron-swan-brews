@@ -1,3 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Form should match snapshot 1`] = `ShallowWrapper {}`;
+exports[`Form should match snapshot 1`] = `
+<form>
+  <label
+    htmlFor="search"
+  >
+     Search Here 
+  </label>
+  <input
+    id="search"
+    name="city"
+    onChange={[Function]}
+    placeholder="Search for breweries in a city near you..."
+    type="text"
+    value=""
+  />
+  <div
+    className="button-holder"
+  >
+    <button
+      onClick={[Function]}
+    >
+      Search
+    </button>
+    <NavLink
+      to="/show-all"
+    >
+      <input
+        name="Show All"
+        onClick={[Function]}
+        type="button"
+        value="Show All"
+      />
+    </NavLink>
+    <input
+      onClick={[Function]}
+      type="button"
+      value="Show Favorites"
+    />
+  </div>
+</form>
+`;

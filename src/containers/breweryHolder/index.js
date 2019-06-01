@@ -30,7 +30,7 @@ export const BreweryHolder = (props) => {
 	)
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
 	breweries: state.breweries,
 	quotes: state.quotes,
 	search: state.search

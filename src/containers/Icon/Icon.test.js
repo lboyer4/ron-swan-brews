@@ -41,6 +41,17 @@ describe('Icon', () => {
 			const mappedProps = mapStateToProps(mockState)
 
 			expect(mappedProps).toEqual(expected);
-		})
-	})
+		});
+	});
+
+	describe('mapDispatchToProps', () => {
+		it('should dispatch set Search', () => {
+			const mockDispatch = jest.fn();
+			const actionToDispatch = setSearch('');
+			const mappedProps = mapDispatchToProps(mockDispatch);
+
+			mappedProps.setSearch('');
+			expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+		});
+	});
 });

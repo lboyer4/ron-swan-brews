@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './_BreweryDetails.scss';
 
-class BreweryDetails extends Component {
+export class BreweryDetails extends Component {
 	constructor() {
 		super()
 		this.state = {

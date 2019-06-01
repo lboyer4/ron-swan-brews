@@ -10,7 +10,7 @@ class Card extends Component{
 		}
 	}
 	render(props){
-		const { name, city, phone, street, brewery_type, id } = this.props;
+		const { name, id } = this.props;
 		return (
 			<article className="brew-card"> 
 				<NavLink to={`/breweries/${id}`} className="nav"><h3 className="brew name">

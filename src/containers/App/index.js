@@ -47,7 +47,6 @@ export class App extends Component {
 						return brewery.id === parseInt(match.params.id)
 					})
 					if(selectedBrewery) {
-						console.log('selected', selectedBrewery)
 						return <BreweryDetails
 							{ ...selectedBrewery }
 						/>

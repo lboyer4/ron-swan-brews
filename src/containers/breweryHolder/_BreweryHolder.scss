@@ -1,0 +1,18 @@
+section {
+	height: 700px;
+	display: flex;
+	flex-wrap: wrap;
+	overflow: scroll;
+	opacity: 0.5;
+	background-image: url('https://stmed.net/sites/default/files/nick-offerman-wallpapers-27172-3632959.jpg');
+	background-size: cover;
+	justify-content: center;
+}
+
+.quote {
+	opacity: 1;
+	font-weight: bold;
+	display: block;
+	width: 100%;
+
+}

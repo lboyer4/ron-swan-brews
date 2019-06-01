@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '../Card';
 import { connect } from 'react-redux'
+import './_BreweryHolder.scss'
 
 export const BreweryHolder = (props) => {
 	let allCards = props.breweries.map(brewery => {
@@ -17,7 +18,7 @@ export const BreweryHolder = (props) => {
 
 	return (
 		<section className="card-holder">
-			<h1>"{quote}"</h1>
+			<h1 className='quote'>"{quote}"</h1>
 			{showCard}
 		</section>
 	)

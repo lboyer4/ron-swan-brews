@@ -28,7 +28,7 @@ class Icon extends Component {
 					<div className="title">
 					<h1>RonSwanBreweries</h1>
 				
-				<h6 className="ronswan-quote">"Clear alcohols are for rich women on diets."</h6>
+				<h4 className="ronswan-quote">"Clear alcohols are for rich women on diets."</h4>
 				<p> -Ron Swanson</p>
 				</div>
 				</nav>

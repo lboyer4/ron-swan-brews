@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setSearch } from '../../actions';
 
-class Icon extends Component {
+export class Icon extends Component {
 	constructor() {
 		super();
 		this.state = {

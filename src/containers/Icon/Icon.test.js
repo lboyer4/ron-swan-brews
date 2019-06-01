@@ -22,14 +22,25 @@ describe('Icon', () => {
 	it('should match the snapshot', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
-
-	it('should clear search', () => {
-		wrapper = shallow(
-			<Icon
-				search= ''
-				setSearch={jest.fn()}
-			/>)
-		wrapper.instance().clearSearch()
-		expect(wrapper.instance().props.setSearch).toHaveBeenCalled()
+	describe('clearSearch', () => {
+		it('should clear search', () => {
+			wrapper = shallow(
+				<Icon
+					search= ''
+					setSearch={jest.fn()}
+				/>)
+			wrapper.instance().clearSearch()
+			expect(wrapper.instance().props.setSearch).toHaveBeenCalled()
+		});
 	});
+
+	describe('mapStateToProps', () => {
+		it('should return a props array of quotes', () => {
+			const mockState = {quotes: ['quote1', 'quote2']}
+			const expected = {quotes: ['quote1', 'quote2']}
+			const mappedProps = mapStateToProps(mockState)
+
+			expect(mappedProps).toEqual(expected);
+		})
+	})
 });

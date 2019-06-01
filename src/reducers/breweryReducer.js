@@ -7,4 +7,4 @@ export const breweryReducer = (state = initialState, action) => {
 		default: 
 			return state
 	}
-}
+} 

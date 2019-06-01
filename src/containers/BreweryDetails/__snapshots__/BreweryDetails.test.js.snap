@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BreweryDetails should match snapshot 1`] = `
+<section
+  cardName="background-big"
+>
+  <div
+    className="big-card"
+  >
+    <h2 />
+    <p
+      className="brew type"
+    />
+    <h6
+      className="brew city"
+    />
+    <h6
+      className="brew street"
+    />
+    <h6
+      className="brew number"
+    />
+  </div>
+</section>
+`;

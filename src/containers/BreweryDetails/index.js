@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './_BreweryDetails.scss';
 import { connect } from 'react-redux';
 import { toggleFavorite } from '../../actions';
+import PropTypes from 'prop-types';
 
 export class BreweryDetails extends Component {
 	constructor() {
@@ -16,7 +17,7 @@ export class BreweryDetails extends Component {
 	}
 
 	render() {
-		const { name, brewery_type, city, street, phone, favorited, id } = this.props
+		const { name, brewery_type, city, street, phone } = this.props
 		
 		return (
 			<section>
@@ -38,3 +39,14 @@ export const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(null, mapDispatchToProps)(BreweryDetails);
+
+BreweryDetails.propTypes = {
+	brewery_type: PropTypes.string,
+	city: PropTypes.string,
+	favorited: PropTypes.bool, 
+	id: PropTypes.number,
+	name: PropTypes.string,
+	phone: PropTypes.string,
+	street: PropTypes.string,
+	toggleFavorite: PropTypes.func
+}

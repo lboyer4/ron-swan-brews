@@ -8,7 +8,6 @@ import { setBreweries, setQuotes } from '../../actions';
 import { fetchData } from '../../utils/fetch-data.js';
 import { Route } from 'react-router-dom';
 import BreweryDetails from './../BreweryDetails';
-import Card from '../Card';
 import FavoritesHolder from '../FavoritesHolder';
 
 
@@ -93,4 +92,10 @@ export const mapDispatchToProps = (dispatch) => ({
 	setQuotes: (quotes) => dispatch(setQuotes(quotes))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+App.propTypes = {
+	breweries: PropTypes.array,
+	setBreweries: PropTypes.func,
+	setQuotes: PropTypes.func
+}

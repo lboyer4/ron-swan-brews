@@ -3,6 +3,7 @@ import './_Form.scss'
 import { connect } from 'react-redux';
 import { setSearch } from '../../actions';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export class Form extends Component {
 	constructor() {
@@ -66,12 +67,16 @@ export class Form extends Component {
 					</NavLink>
 				</div>
 			</form>
-			)
-	}
-}
+			);
+	};
+};
 
 export const mapDispatchToProps = (dispatch) => ({
 	setSearch: (search) => dispatch(setSearch(search))
-})
+});
 
-export default connect(null, mapDispatchToProps)(Form)
+export default connect(null, mapDispatchToProps)(Form);
+
+Form.propTypes = {
+	setSearch: PropTypes.func
+}

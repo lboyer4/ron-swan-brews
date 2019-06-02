@@ -92,4 +92,10 @@ export const mapDispatchToProps = (dispatch) => ({
 	setQuotes: (quotes) => dispatch(setQuotes(quotes))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+App.propTypes = {
+	breweries: PropTypes.array,
+	setBreweries: PropTypes.func,
+	setQuotes: PropTypes.func
+}

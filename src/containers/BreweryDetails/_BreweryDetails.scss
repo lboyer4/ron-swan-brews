@@ -16,3 +16,13 @@
   background-color: #FFA69E;
   opacity: .9;
 }
+
+.favorite-btn {
+	background-color: #EDBF85;
+	border: 1px solid #A57F60;
+	font-size: 20px;
+	&:hover {
+		background-color: #FFA69E;
+		color: black;
+}
+}

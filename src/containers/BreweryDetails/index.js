@@ -17,11 +17,12 @@ export class BreweryDetails extends Component {
 	}
 
 	render() {
-		const { name, brewery_type, city, street, phone } = this.props
+		const { name, brewery_type, city, street, phone, favorited } = this.props
+
 		
 		return (
 			<section>
-			<div className="big-card">
+			<div className={favorited ? "favorited" : "big-card"} >
 				<h2>{name}</h2>
 				<p className="brew type">{brewery_type}</p>
 				<h6 className="brew city">{city}</h6>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import './_Card.scss';
+import PropTyes from 'prop-types';
 
 class Card extends Component{
 	constructor() {
@@ -18,7 +19,17 @@ class Card extends Component{
 				</NavLink>
 			</article>
 		)
-	}
-}
+	};
+};
 
 export default Card;
+
+Card.propTypes = {
+	brewery_type: PropTyes.string,
+	city: PropTyes.string,
+	favorited: PropTyes.bool,
+	id: PropTyes.number,
+	name:PropTyes.string,
+	phone: PropTyes.string,
+	street:PropTyes.string,
+}

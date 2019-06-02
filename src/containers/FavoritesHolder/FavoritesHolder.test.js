@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { FavoritesHolder } from '../FavoritesHolder';
+import { FavoritesHolder, mapStateToProps } from '../FavoritesHolder';
 
 describe('FavoritesHolder'
 , () => {
@@ -26,5 +26,19 @@ describe('FavoritesHolder'
 
 	it('should match snapshots', () => {
 		expect(wrapper).toMatchSnapshot()
-	})
+	});
+
+	it('should return a brewery object', () => {
+		const mockState = {
+			breweries: { breweries: mockBreweries }
+		}
+
+		const expected = {
+			breweries: mockState.breweries
+		}
+
+		const mappedProps = mapStateToProps(mockState);
+
+		expect(mappedProps).toEqual(expected)	
+	});
 });

@@ -3,6 +3,11 @@ export const setBreweries = (breweries) => ({
 	breweries
 });	
 
+export const toggleFavorite = (id) => ({
+	type: 'TOGGLE_FAVORITE', 
+	id
+})
+
 export const setQuotes = (quotes) => ({
 	type: 'SET_QUOTES',
 	quotes

@@ -57,11 +57,13 @@ export class Form extends Component {
 							value="Show All" 
 							onClick={ this.updateSearch } />
 					</NavLink>
-					<input 
-						className="show-favorites"
-						type="button" 
-						value="Show Favorites" 
-						onClick={ this.updateSearch } />
+					<NavLink to="/favorites">
+						<input 
+							className="show-favorites"
+							type="button" 
+							value="Show Favorites" 
+							onClick={ this.updateSearch } />
+					</NavLink>
 				</div>
 			</form>
 			)

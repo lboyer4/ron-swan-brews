@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './_BreweryDetails.scss';
+import { connect } from 'react-redux';
+import { toggleFavorite } from '../../actions';
 
 export class BreweryDetails extends Component {
 	constructor() {
@@ -8,8 +10,13 @@ export class BreweryDetails extends Component {
 
 		}
 	}
+
+	handleFavorite = () => {
+		this.props.toggleFavorite(this.props.id)
+	}
+
 	render() {
-		const { name, brewery_type, city, street, phone } = this.props
+		const { name, brewery_type, city, street, phone, favorited, id } = this.props
 		
 		return (
 			<section cardName="background-big">
@@ -19,10 +26,15 @@ export class BreweryDetails extends Component {
 				<h6 className="brew city">{city}</h6>
 				<h6 className="brew street">{street}</h6>
 				<h6 className="brew number">{phone}</h6>
+				<button onClick={this.handleFavorite}>Favorite</button>
 			</div>
 			</section>
 		)
 	}
 }
 
-export default BreweryDetails;
+export const mapDispatchToProps = (dispatch) => ({
+	toggleFavorite: (id) => dispatch(toggleFavorite(id))
+})
+
+export default connect(null, mapDispatchToProps)(BreweryDetails);

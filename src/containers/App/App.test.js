@@ -18,7 +18,7 @@ describe('App', () => {
 				setQuotes={mockSetQuotes}
 			/>
 		)
-	})
+	});
 
 	it('should match snapshots', () => {
 		expect(wrapper).toMatchSnapshot();

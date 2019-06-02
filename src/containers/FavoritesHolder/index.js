@@ -25,8 +25,7 @@ export const mapStateToProps = (state) => ({
 export default connect(mapStateToProps)(FavoritesHolder);
 
 FavoritesHolder.propTypes = {
-
-breweries: PropTypes.array,
+  breweries: PropTypes.array,
   dispatch: PropTypes.func,
   history: PropTypes.object,
   location: PropTypes.object,

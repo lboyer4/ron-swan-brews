@@ -4,6 +4,7 @@ import ronswanIcon from '../../utils/images/ronswanIcon.png'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setSearch } from '../../actions';
+import PropTypes from 'prop-types';
 
 export class Icon extends Component {
 	constructor() {
@@ -16,7 +17,7 @@ export class Icon extends Component {
 	clearSearch = () => {
 		const clear = ''
 		this.props.setSearch(clear)
-	}
+	};
 
 	render() {
 		return (
@@ -33,16 +34,21 @@ export class Icon extends Component {
 				</div>
 				</nav>
 			</div>
-			)
-	}
-}
+			);
+	};
+};
 
 export const mapStateToProps = (state) => ({
 	quotes: state.quotes
-})
+});
 
 export const mapDispatchToProps = (dispatch) => ({
 	setSearch: (search) => dispatch(setSearch(search))
-})
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Icon)
+export default connect(mapStateToProps, mapDispatchToProps)(Icon);
+
+Icon.propTypes = {
+	quotes: PropTypes.array,
+	setSearch: PropTypes.func
+}

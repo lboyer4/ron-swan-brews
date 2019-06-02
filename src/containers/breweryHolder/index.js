@@ -8,11 +8,6 @@ export const BreweryHolder = (props) => {
 			return <Card {...brewery} key={brewery.id}/>
 		})
 	let showCard = props.search === 'Show All' && allCards
-
-	let cityCard = props.breweries.filter(brewery => {
-		console.log(brewery)
-		return brewery.city === props.search
-	})
 	
 
 	//randomnumber quote
@@ -25,7 +20,6 @@ export const BreweryHolder = (props) => {
 		<section className="card-holder">
 			<h1 className='quote'>"{quote}"</h1>
 				{showCard}
-				{cityCard}
 		</section>
 	)
 }

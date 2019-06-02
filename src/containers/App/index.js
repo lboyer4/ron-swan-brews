@@ -9,6 +9,7 @@ import { fetchData } from '../../utils/fetch-data.js';
 import { Route } from 'react-router-dom';
 import BreweryDetails from './../BreweryDetails';
 import Card from '../Card';
+import FavoritesHolder from '../FavoritesHolder';
 
 
 export class App extends Component {
@@ -61,27 +62,18 @@ export class App extends Component {
 				
 				<Route path = '/' component = { Header } />
 				<Route exact path = '/' component = { BreweryHolder } />
-				<Route exact path = '/show-all' component = { BreweryHolder } render = {
-					<Card {...this.props.breweries} />
-				} />
-				<Route exact path = '/favorites'
-					 render = {( { match } ) => {
-					 	const favoriteBreweries = this.props.breweries.filter(brewery => {
-					 		return brewery.favorite === true
-					 	})
-
-					 	if(favoriteBreweries) {
-					 		return <BreweryHolder
-					 			{ ...favoriteBreweries}
-					 		/>
-					 	}
-				}}
+				<Route exact path = '/show-all' component = { BreweryHolder } 
+				 />
+				<Route exact path ='/favorites' 
+					component = { FavoritesHolder }
+				
 				/>
-				<Route exact path = '/breweries/:id' render = {( { match }) => {
+			<Route exact path = '/breweries/:id' render = {( { match }) => {
 					const selectedBrewery = this.props.breweries.find(brewery => {
 						return brewery.id === parseInt(match.params.id)
 					})
 					if(selectedBrewery) {
+						
 						return <BreweryDetails
 							{ ...selectedBrewery }
 						/>

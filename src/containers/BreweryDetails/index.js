@@ -19,7 +19,7 @@ export class BreweryDetails extends Component {
 		const { name, brewery_type, city, street, phone, favorited, id } = this.props
 		
 		return (
-			<section cardName="background-big">
+			<section>
 			<div className="big-card">
 				<h2>{name}</h2>
 				<p className="brew type">{brewery_type}</p>

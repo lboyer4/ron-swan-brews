@@ -10,7 +10,5 @@ exports[`BreweryHolder should match snapshots 1`] = `
     "
     "
   </h1>
-  <Component />
-  <Component />
 </section>
 `;

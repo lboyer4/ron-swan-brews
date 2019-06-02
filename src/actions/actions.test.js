@@ -4,6 +4,7 @@ describe('actions', () => {
 	let mockBreweries;
 	let mockQuotes;
 	let mockSearch;
+	let mockId
 
 	beforeEach(() => {
 		mockBreweries = [
@@ -15,7 +16,10 @@ describe('actions', () => {
 			'quote two'
 		];
 		mockSearch = 'Denver';
+
+		mockId = 2
 	});
+
 
 	describe('SET_BREWERIES', () => {
 		it('should create an action object with a type of SET_BREWERIES', () => {
@@ -30,6 +34,22 @@ describe('actions', () => {
 			const results = actions.setBreweries(mockBreweries);
 			
 			expect(results.breweries).toEqual(expected);
+		});
+	});
+
+	describe('TOGGLE_FAVORITE', () => {
+		it('should create an action object with a type of TOGGLE_FAVORITE', () => {
+			const mockId = 1;
+			const expected = 'TOGGLE_FAVORITE';
+			const results = actions.toggleFavorite(mockId)
+			expect(results.type).toBe(expected)
+		});
+
+		it('should have a property of id', () => {
+			const expected = mockId;
+			const results = actions.toggleFavorite(mockId);
+
+			expect(results.id).toEqual(expected);
 		});
 	});
 

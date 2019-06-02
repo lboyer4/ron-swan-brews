@@ -24,8 +24,8 @@ export const BreweryHolder = (props) => {
 	return (
 		<section className="card-holder">
 			<h1 className='quote'>"{quote}"</h1>
-			{showCard}
-			{cityCard}
+				{showCard}
+				{cityCard}
 		</section>
 	)
 }

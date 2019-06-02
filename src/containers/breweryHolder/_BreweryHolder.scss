@@ -3,10 +3,12 @@ section {
 	display: flex;
 	flex-wrap: wrap;
 	overflow: scroll;
-	opacity: 0.5;
-	background-image: url('https://stmed.net/sites/default/files/nick-offerman-wallpapers-27172-3632959.jpg');
+	background-image: url('../../utils/images/paddling.png');
 	background-size: cover;
 	justify-content: center;
+	text-align: center;
+	border: 2px solid black;
+	width: 100%;
 }
 
 .quote {
@@ -14,5 +16,8 @@ section {
 	font-weight: bold;
 	display: block;
 	width: 100%;
-
+	font-size: 25px;
+	color: #FFA552;
+	text-shadow: 1px 1px black;
+	letter-spacing: 2px;
 }

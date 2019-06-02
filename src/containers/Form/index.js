@@ -44,17 +44,21 @@ export class Form extends Component {
 					name="city"
 					placeholder="Search for breweries in a city near you..." />
 				<div className="button-holder">
-					<button onClick={this.handleClick}>
-						Search
-					</button>
+					<input onClick={this.handleClick}
+						type="button"
+						value="Search"
+						className="search"
+					/>
 					<NavLink to="/show-all">
 						<input 
+							className="show-all"
 							type="button" 
 							name="Show All"
 							value="Show All" 
 							onClick={ this.updateSearch } />
 					</NavLink>
 					<input 
+						className="show-favorites"
 						type="button" 
 						value="Show Favorites" 
 						onClick={ this.updateSearch } />

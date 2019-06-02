@@ -1,7 +1,12 @@
 form {
-	height: 100px;
-	width: 400px;
+    border: 2px solid #A57F60;
+    background-color: #F7DBA7;
+    opacity: .9;
+    margin-left: 20px;
+    height: 140px;
+    width: 420px;
 }
+
 
 .button-holder {
 	display: flex;
@@ -13,8 +18,22 @@ button {
  	width: 130px;
 }
 
+.show-all,
+.show-favorites,
+.search {
+	width: 130px;
+	background-color: #EDBF85;
+	border: 1px solid #A57F60;
+	font-size: 15px;
+	&:hover {
+		background-color: #A57F60;
+		color: white;
+	}
+}
+
 label {
-	color: #fff;
+	color: black;
+	margin: 5px;
 }
 
 input {

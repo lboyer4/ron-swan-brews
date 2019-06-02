@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Card from '../Card';
+import PropTypes from 'prop-types';
 
 export const FavoritesHolder = (props) => {
   const favorite = props.breweries.map(brewery => {
@@ -22,3 +23,12 @@ export const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps)(FavoritesHolder);
+
+FavoritesHolder.propTypes = {
+
+breweries: PropTypes.array,
+  dispatch: PropTypes.func,
+  history: PropTypes.object,
+  location: PropTypes.object,
+  match: PropTypes.object
+}

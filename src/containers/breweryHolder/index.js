@@ -9,8 +9,6 @@ export const BreweryHolder = (props) => {
 		})
 	let showCard = props.search === 'Show All' && allCards
 	
-
-	//randomnumber quote
 	let min = Math.ceil(1);
   let max = Math.floor(30);
   let randomNum = Math.floor(Math.random() * (max - min + 1)) + min;

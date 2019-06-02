@@ -6,7 +6,6 @@ class Card extends Component{
 	constructor() {
 		super();
 		this.state = {
-
 		}
 	}
 	render(props){

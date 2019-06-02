@@ -7,7 +7,6 @@ export const breweryReducer = (state = initialState, action) => {
 		case 'TOGGLE_FAVORITE':
 			return state.map(brewery => {
 				if(brewery.id === action.id) {
-					console.log('reducer', brewery)
 					const favorited = !brewery.favorited
 					return { ...brewery, favorited }
 				} else {

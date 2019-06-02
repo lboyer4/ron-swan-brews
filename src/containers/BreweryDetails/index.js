@@ -16,7 +16,7 @@ export class BreweryDetails extends Component {
 	}
 
 	render() {
-		const { name, brewery_type, city, street, phone, favorited, id } = this.props
+		const { name, brewery_type, city, street, phone } = this.props
 		
 		return (
 			<section>

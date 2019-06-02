@@ -8,7 +8,6 @@ import { setBreweries, setQuotes } from '../../actions';
 import { fetchData } from '../../utils/fetch-data.js';
 import { Route } from 'react-router-dom';
 import BreweryDetails from './../BreweryDetails';
-import Card from '../Card';
 import FavoritesHolder from '../FavoritesHolder';
 
 

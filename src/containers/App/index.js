@@ -28,8 +28,24 @@ export class App extends Component {
   	handleBreweries = () => {
   		const url = 'https://api.openbrewerydb.org/breweries?by_state=colorado'
   		fetchData(url)
-  		.then(breweries => this.props.setBreweries(breweries))
+  		.then(breweries => this.addFavorite(breweries))
   	}
+
+  	addFavorite = (breweries) => {
+  		let newBrews = breweries.map(brewery => {
+  			return {
+  				name: brewery.name,
+  				brewery_type: brewery.brewery_type,
+  				id: brewery.id,
+  				city: brewery.city,
+  				street: brewery.city,
+  				phone: brewery.phone,
+  				favorited: false
+  			}
+  		})
+  		this.props.setBreweries(newBrews)
+  	}
+
 
   	handleQuotes = () => {
   		const url = 'https://ron-swanson-quotes.herokuapp.com/v2/quotes/30';
@@ -48,6 +64,19 @@ export class App extends Component {
 				<Route exact path = '/show-all' component = { BreweryHolder } render = {
 					<Card {...this.props.breweries} />
 				} />
+				<Route exact path = '/favorites'
+					 render = {( { match } ) => {
+					 	const favoriteBreweries = this.props.breweries.filter(brewery => {
+					 		return brewery.favorite === true
+					 	})
+
+					 	if(favoriteBreweries) {
+					 		return <BreweryHolder
+					 			{ ...favoriteBreweries}
+					 		/>
+					 	}
+				}}
+				/>
 				<Route exact path = '/breweries/:id' render = {( { match }) => {
 					const selectedBrewery = this.props.breweries.find(brewery => {
 						return brewery.id === parseInt(match.params.id)
@@ -59,8 +88,6 @@ export class App extends Component {
 					}
 				}}
 				/>
-{/*				<Header />
-				<BreweryHolder />*/}
 			</div>
 		)
 	}

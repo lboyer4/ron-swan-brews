@@ -9,7 +9,7 @@ exports[`Card should match snapshot 1`] = `
     to="/breweries/undefined"
   >
     <h3
-      className="brew name"
+      className="brew-name"
     />
   </NavLink>
 </article>

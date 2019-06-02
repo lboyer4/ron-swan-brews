@@ -38,7 +38,7 @@ export class App extends Component {
   				brewery_type: brewery.brewery_type,
   				id: brewery.id,
   				city: brewery.city,
-  				street: brewery.city,
+  				street: brewery.street,
   				phone: brewery.phone,
   				favorited: false
   			}

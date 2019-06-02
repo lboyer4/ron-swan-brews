@@ -20,6 +20,30 @@ describe('breweryReducer', () => {
 		const expected = breweries;
 		expect(result).toEqual(expected);
 	});
+
+	it('should toggle favorite if brewery.id equals action.id', () => {
+		const mockFalseBreweries = [
+			{brewery: 'one',
+			favorited: false,
+			id: 1},
+			{brewery: 'one',
+			favorited: false,
+			id: 2}
+		];
+
+		const mockTrueBreweries = [
+			{brewery: 'one',
+			favorited: false,
+			id: 1},
+			{brewery: 'one',
+			favorited: true,
+			id: 2}
+		];
+
+		const result = breweryReducer( mockFalseBreweries, actions.toggleFavorite(2));
+		const expected = mockTrueBreweries;
+		expect(result).toEqual(expected);
+	});
 });
 
 describe('quotesReducer', () => {
@@ -55,8 +79,6 @@ describe('searchReducer', () => {
 	});
 });
 
-describe('rootReducer', () => {
 
-})
 
 

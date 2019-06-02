@@ -18,26 +18,33 @@ exports[`Form should match snapshot 1`] = `
   <div
     className="button-holder"
   >
-    <button
+    <input
+      className="search"
       onClick={[Function]}
-    >
-      Search
-    </button>
+      type="button"
+      value="Search"
+    />
     <NavLink
       to="/show-all"
     >
       <input
+        className="show-all"
         name="Show All"
         onClick={[Function]}
         type="button"
         value="Show All"
       />
     </NavLink>
-    <input
-      onClick={[Function]}
-      type="button"
-      value="Show Favorites"
-    />
+    <NavLink
+      to="/favorites"
+    >
+      <input
+        className="show-favorites"
+        onClick={[Function]}
+        type="button"
+        value="Show Favorites"
+      />
+    </NavLink>
   </div>
 </form>
 `;

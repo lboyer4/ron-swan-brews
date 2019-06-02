@@ -3,10 +3,11 @@ This project is crafted to allow a user to search, view, and favorite Colorado b
 
 ### Installation
 
-To install, first clone down this repo `https://github.com/lboyer4/ron-swan-brews.git` 
+To install, first clone down this repo `git clone https://github.com/lboyer4/ron-swan-brews.git` 
 
-next, `run npm install`
+next, run `npm install`
 
+view app in browser with `npm start`
 
 ### Screenshots 
 

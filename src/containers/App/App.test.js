@@ -3,14 +3,37 @@ import { shallow } from 'enzyme';
 import { App, mapDispatchToProps, mapStateToProps } from './index.js';
 import { setBreweries, setQuotes } from '../../actions';
 
+const noFavoriteBreweries = {	
+	name: 'NOMNOM',
+	brewery_type: 'micro',
+	id: 1,
+	city: 'Denver',
+	street: 'market st.',
+	phone: '800-555-5555'
+}
+
+const favoriteBreweries = {	
+	name: 'NOMNOM',
+	brewery_type: 'micro',
+	id: 1,
+	city: 'Denver',
+	street: 'market st.',
+	phone: '800-555-5555',
+	favorited: false
+}
+
+const mockAddFavorite = jest.fn()
+
 describe('App', () => {
 	let wrapper;
 	let mockSetBreweries;
 	let mockSetQuotes;
+	let mockAddFavorite
 
 	beforeEach (() => {
 		mockSetBreweries = jest.fn();
 		mockSetQuotes = jest.fn();
+		mockAddFavorite = jest.fn()
 
 		wrapper = shallow(
 			<App 
@@ -18,7 +41,7 @@ describe('App', () => {
 				setQuotes={mockSetQuotes}
 			/>
 		)
-	})
+	});
 
 	it('should match snapshots', () => {
 		expect(wrapper).toMatchSnapshot();
@@ -36,8 +59,21 @@ describe('App', () => {
 			expect(spy).toHaveBeenCalled()
 		})
 
-		it('should call setBreweries dispatch', () => {
-			wrapper.instance().handleBreweries()
+		it.skip('should return breweries with correct props', () => {
+			const noFavoriteBreweries = {	
+	name: 'NOMNOM',
+	brewery_type: 'micro',
+	id: 1,
+	city: 'Denver',
+	street: 'market st.',
+	phone: '800-555-5555'
+}
+			// wrapper.instance().addFavorite([noFavoriteBreweries])
+			expect(wrapper.instance().mockAddFavorite).toEqual([favoriteBreweries])
+		})
+
+		it.skip('should call setBreweries dispatch', () => {
+			wrapper.instance().addFavorite()
 			expect(wrapper.instance().props.setBreweries).toHaveBeenCalled
 		});
 	});

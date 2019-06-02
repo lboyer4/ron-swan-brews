@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FavoritesHolder should match snapshots 1`] = `
+<section
+  className="main"
+>
+  <section
+    className="image-container"
+  />
+</section>
+`;

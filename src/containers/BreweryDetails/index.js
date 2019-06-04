@@ -17,17 +17,19 @@ export class BreweryDetails extends Component {
 	}
 
 	render() {
-		const { name, brewery_type, city, street, phone } = this.props
+		const { name, brewery_type, city, street, phone, favorited } = this.props
+		let favText = favorited ? 'Unfavorite' : 'Favorite';
 		
 		return (
+			
 			<section>
-			<div className="big-card">
-				<h2>{name}</h2>
-				<p className="brew type">{brewery_type}</p>
-				<h6 className="brew city">{city}</h6>
-				<h6 className="brew street">{street}</h6>
-				<h6 className="brew number">{phone}</h6>
-				<button onClick={this.handleFavorite}>Favorite</button>
+			<div className={favorited ? "favorited" : "big-card"} >
+				<h1>{name}</h1>
+				<h4 className="brew type">Brewery Type: {brewery_type}</h4>
+				<h4 className="brew city">City: {city}</h4>
+				<h4 className="brew street">Street: {street}</h4>
+				<h4 className="brew number">Phone: {phone}</h4>
+				<button className="favorite-btn" onClick={this.handleFavorite}>{favText}</button>
 			</div>
 			</section>
 		)

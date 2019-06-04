@@ -5,20 +5,29 @@ exports[`BreweryDetails should match snapshot 1`] = `
   <div
     className="big-card"
   >
-    <h2 />
-    <p
+    <h1 />
+    <h4
       className="brew type"
-    />
-    <h6
+    >
+      Brewery Type: 
+    </h4>
+    <h4
       className="brew city"
-    />
-    <h6
+    >
+      City: 
+    </h4>
+    <h4
       className="brew street"
-    />
-    <h6
+    >
+      Street: 
+    </h4>
+    <h4
       className="brew number"
-    />
+    >
+      Phone: 
+    </h4>
     <button
+      className="favorite-btn"
       onClick={[Function]}
     >
       Favorite

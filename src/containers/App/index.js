@@ -53,20 +53,18 @@ export class App extends Component {
   		.then(quotes => this.props.setQuotes(quotes))
   	}
 
-
-
 	render() {
 		return(
 			<div>
-				
 				<Route path = '/' component = { Header } />
 				<Route exact path = '/' component = { BreweryHolder } />
 				<Route exact path = '/show-all' component = { BreweryHolder } 
 				 />
+				 <Route exact path = '/show-city' component= {BreweryHolder} />
 				<Route exact path ='/favorites' 
 					component = { FavoritesHolder }
-				
 				/>
+
 			<Route exact path = '/breweries/:id' render = {( { match }) => {
 					const selectedBrewery = this.props.breweries.find(brewery => {
 						return brewery.id === parseInt(match.params.id)

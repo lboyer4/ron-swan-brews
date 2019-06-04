@@ -5,24 +5,39 @@ import './_BreweryHolder.scss';
 import PropTypes from 'prop-types';
 
 export const BreweryHolder = (props) => {
-	let allCards = props.breweries.map(brewery => {
+	let displayCards;
+	if(props.search === 'Show All') {
+		displayCards = props.breweries.map(brewery => {
 			return <Card {...brewery} key={brewery.id}/>
 		})
-	let showCard = props.search === 'Show All' && allCards;
-	
+		} else {
+			displayCards = props.breweries.map(brewery => {
+				if(brewery.city === props.search) {
+					return <Card {...brewery} />
+				}
+			})
+		}
+
 	let min = Math.ceil(1);
   let max = Math.floor(30);
   let randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
 	let quote = props.quotes[randomNum];
 
+// 	return (
+// 		<section className="card-holder">
+// 			<h1 className='quote'>"{quote}"</h1>
+// 				{showCard}
+// 		</section>
+// 	)
+// };
+
 	return (
 		<section className="card-holder">
 			<h1 className='quote'>"{quote}"</h1>
-				{showCard}
+				{displayCards}
 		</section>
 	)
-};
-
+}
 export const mapStateToProps = (state) => ({
 	breweries: state.breweries,
 	quotes: state.quotes,
@@ -37,6 +52,6 @@ BreweryHolder.propTypes = {
 	history: PropTypes.object,
 	location: PropTypes.object,
 	match:PropTypes.object,
-	quotes:PropTypes.array,
+	quote:PropTypes.string,
 	search: PropTypes.string
 }

@@ -19,7 +19,7 @@ export class Form extends Component {
 	}
 
 	handleClick = (e) => {
-		e.preventDefault()
+		e.preventDefault();
 		this.setStoreSearch(this.state.city)
 	}
 
@@ -30,6 +30,17 @@ export class Form extends Component {
 
 	setStoreSearch = (search) => {
 		this.props.setSearch(search)
+		this.setState({city: ''})
+		this.searchCities(this.state.city)
+	}
+
+	searchCities = (city) => {
+		console.log(city)
+		console.log(this.props.breweries)
+		const searchedCities = this.props.breweries.filter(brewery => {
+			return brewery.city === city
+		})
+		console.log(searchedCities)
 	}
 
 
@@ -45,11 +56,13 @@ export class Form extends Component {
 					name="city"
 					placeholder="Search for breweries in a city near you..." />
 				<div className="button-holder">
-					<input onClick={this.handleClick}
-						type="button"
-						value="Search"
-						className="search"
-					/>
+					<NavLink to="/show-city">
+						<input onClick={this.handleClick}
+							type="button"
+							value="Search"
+							className="search"
+						/>
+					</NavLink>
 					<NavLink to="/show-all">
 						<input 
 							className="show-all"
@@ -71,11 +84,15 @@ export class Form extends Component {
 	};
 };
 
+export const mapStateToProps = (state) => ({
+	breweries: state.breweries
+})
+
 export const mapDispatchToProps = (dispatch) => ({
 	setSearch: (search) => dispatch(setSearch(search))
 });
 
-export default connect(null, mapDispatchToProps)(Form);
+export default connect(mapStateToProps, mapDispatchToProps)(Form);
 
 Form.propTypes = {
 	setSearch: PropTypes.func

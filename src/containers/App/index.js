@@ -15,7 +15,7 @@ export class App extends Component {
 	constructor() {
 		super();
 		this.state = {
-			quote: '',
+			quotes: [],
 			breweries: []
 		}
 	}
@@ -50,30 +50,21 @@ export class App extends Component {
   	handleQuotes = () => {
   		const url = 'https://ron-swanson-quotes.herokuapp.com/v2/quotes/30';
   		fetchData(url)
-  		.then(quotes => this.makeQuote(quotes))
+  		.then(quotes => this.props.setQuotes(quotes))
   	}
-
-  	makeQuote = (quotes) => {
-		let min = Math.ceil(1);
-	  let max = Math.floor(30);
-	  let randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
-		this.setState({quote: quotes[randomNum]});
-		this.props.setQuotes(this.state.quote)
-	}
 
 	render() {
 		return(
 			<div>
 				<Route path = '/' component = { Header } />
-				<h1>{this.state.quote}</h1>
 				<Route exact path = '/' component = { BreweryHolder } />
 				<Route exact path = '/show-all' component = { BreweryHolder } 
 				 />
+				 <Route exact path = '/show-city' component= {BreweryHolder} />
 				<Route exact path ='/favorites' 
 					component = { FavoritesHolder }
 				/>
-				<Route exact path = '/show-city' component = { BreweryHolder } 
-				 />
+
 			<Route exact path = '/breweries/:id' render = {( { match }) => {
 					const selectedBrewery = this.props.breweries.find(brewery => {
 						return brewery.id === parseInt(match.params.id)
@@ -96,7 +87,7 @@ export const mapStateToProps = (state) => ({
 
 export const mapDispatchToProps = (dispatch) => ({
 	setBreweries: (breweries) => dispatch(setBreweries(breweries)),
-	setQuotes: (quote) => dispatch(setQuotes(quote))
+	setQuotes: (quotes) => dispatch(setQuotes(quotes))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

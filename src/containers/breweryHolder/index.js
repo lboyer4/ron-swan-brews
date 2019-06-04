@@ -6,8 +6,6 @@ import PropTypes from 'prop-types';
 
 export const BreweryHolder = (props) => {
 	let displayCards;
-	console.log('searching', props.search)
-	// componentDidMount = () => {
 	if(props.search === 'Show All') {
 		displayCards = props.breweries.map(brewery => {
 			return <Card {...brewery} key={brewery.id}/>
@@ -17,35 +15,32 @@ export const BreweryHolder = (props) => {
 				if(brewery.city === props.search) {
 					return <Card {...brewery} />
 				}
-	// 	})
 			})
 		}
-	// }
-	// 	searchCities = (city) => {
-	// 	console.log(city)
-	// 	console.log(this.props.breweries)
-	// 	const searchedCities = this.props.breweries.filter(brewery => {
-	// 		return brewery.city === city
-	// 	})
-	// 	console.log(searchedCities)
-	// }
-	 
-	// let showCard = props.search === 'Show All' && allCards;
 
+	let min = Math.ceil(1);
+  let max = Math.floor(30);
+  let randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+	let quote = props.quotes[randomNum];
 
-
-
+// 	return (
+// 		<section className="card-holder">
+// 			<h1 className='quote'>"{quote}"</h1>
+// 				{showCard}
+// 		</section>
+// 	)
+// };
 
 	return (
 		<section className="card-holder">
-			<h1 className='quote'>"{props.quote}"</h1>
+			<h1 className='quote'>"{quote}"</h1>
 				{displayCards}
 		</section>
 	)
 }
 export const mapStateToProps = (state) => ({
 	breweries: state.breweries,
-	quote: state.quotes,
+	quotes: state.quotes,
 	search: state.search
 });
 

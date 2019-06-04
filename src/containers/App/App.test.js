@@ -2,6 +2,10 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { App, mapDispatchToProps, mapStateToProps } from './index.js';
 import { setBreweries, setQuotes } from '../../actions';
+import { fetchData } from '../../utils/fetch-data.js';
+
+jest.mock('../../utils/fetch-data.js')
+fetchData.mockImplementation(()=> Promise.resolve({ok: true}))
 
 const noFavoriteBreweries = {	
 	name: 'NOMNOM',
@@ -49,38 +53,39 @@ describe('App', () => {
 
 	describe('handleBreweries', () => {
 
-		it.skip('should fetch data with the correct params', () => {
+		it('should fetch data with the correct params', () => {
 			let mockUrl = 'https://api.openbrewerydb.org/breweries?by_state=colorado'
-			const spy = jest.spyOn(App, 'fetchData');
+		
 			const wrapper = shallow(<App />)
-			const instance= wrapper.instance();
-			instance.handleBreweries();
-
-			expect(spy).toHaveBeenCalled()
+			wrapper.instance().handleBreweries();
+		
+			expect(fetchData).toHaveBeenCalledWith(mockUrl)
 		})
 
-		it.skip('should return breweries with correct props', () => {
+		it('should return breweries with correct props', () => {
 			const noFavoriteBreweries = {	
-	name: 'NOMNOM',
-	brewery_type: 'micro',
-	id: 1,
-	city: 'Denver',
-	street: 'market st.',
-	phone: '800-555-5555'
-}
-			// wrapper.instance().addFavorite([noFavoriteBreweries])
-			expect(wrapper.instance().mockAddFavorite).toEqual([favoriteBreweries])
+				name: 'NOMNOM',
+				brewery_type: 'micro',
+				id: 1,
+				city: 'Denver',
+				street: 'market st.',
+				phone: '800-555-5555'
+			}
+			wrapper.instance().addFavorite([noFavoriteBreweries])
+			expect(mockSetBreweries).toHaveBeenCalledWith([favoriteBreweries])
 		})
-
-		it.skip('should call setBreweries dispatch', () => {
-			wrapper.instance().addFavorite()
-			expect(wrapper.instance().props.setBreweries).toHaveBeenCalled
-		});
 	});
 
 	describe('handleQuotes', () => {
 
-		it.skip('should fetch data with the correct params', () => {
+		it('should fetch data with the correct params', () => {
+
+		let mockUrl = 'https://ron-swanson-quotes.herokuapp.com/v2/quotes/30'
+		
+			const wrapper = shallow(<App />)
+			wrapper.instance().handleQuotes();
+		
+			expect(fetchData).toHaveBeenCalledWith(mockUrl)
 		})
 
 		it('should call setQuotes dispatch', () => {
@@ -88,6 +93,26 @@ describe('App', () => {
 			expect(wrapper.instance().props.handleQuotes).toHaveBeenCalled
 		});
 	});
+
+	describe('mapStateToProps', () => {
+		it('should have an array object of breweries', () => {
+
+			const mockState = {
+				breweries: ['one', 'two'],
+				quotes: ['to be', 'not to be'],
+				search: 'Denver'
+			}
+
+			const expected = {
+				breweries: ['one', 'two']
+			}
+
+			const mappedProps = mapStateToProps(mockState);
+
+			expect(mappedProps).toEqual(expected)
+
+		})
+	})
 
 	describe('mapDispatchToProps', () => {
 		it('should call setBreweries from MDTP', () => {

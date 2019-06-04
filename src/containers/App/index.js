@@ -12,10 +12,7 @@ import FavoritesHolder from '../FavoritesHolder';
 
 
 export class App extends Component {
-	constructor() {
-		super();
-	}
-
+	
 	componentDidMount = () => {
 		this.handleBreweries()
 		this.handleQuotes()

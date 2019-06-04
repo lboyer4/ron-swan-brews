@@ -11,11 +11,12 @@ export const BreweryHolder = (props) => {
 			return <Card {...brewery} key={brewery.id}/>
 		})
 		} else {
-			displayCards = props.breweries.map(brewery => {
+			displayCards = props.breweries.reduce((acc, brewery) => {
 				if(brewery.city === props.search) {
-					return <Card {...brewery} />
+					acc.push(<Card {...brewery} key={brewery.id} />)
 				}
-			})
+				return acc;
+			}, [])
 		}
 
 	let min = Math.ceil(1);

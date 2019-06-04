@@ -11,25 +11,18 @@ export const BreweryHolder = (props) => {
 			return <Card {...brewery} key={brewery.id}/>
 		})
 		} else {
-			displayCards = props.breweries.map(brewery => {
+			displayCards = props.breweries.reduce((acc, brewery) => {
 				if(brewery.city === props.search) {
-					return <Card {...brewery} />
+					acc.push(<Card {...brewery} key={brewery.id} />)
 				}
-			})
+				return acc;
+			}, [])
 		}
 
 	let min = Math.ceil(1);
   let max = Math.floor(30);
   let randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
 	let quote = props.quotes[randomNum];
-
-// 	return (
-// 		<section className="card-holder">
-// 			<h1 className='quote'>"{quote}"</h1>
-// 				{showCard}
-// 		</section>
-// 	)
-// };
 
 	return (
 		<section className="card-holder">

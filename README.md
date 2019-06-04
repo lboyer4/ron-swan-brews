@@ -10,6 +10,8 @@ next, run `npm install`
 view app in browser with `npm start`
 
 ### Screenshots 
+![Image of desktop version showall cards feature](./src/utils/images/Show-All.png)
+![Image of desktop version of show specific card feature](./src/utils/images/ShowCard.png)
 
 ### Wireframe
 ![image of the UI wireframe](./src/utils/images/Wire-Frame-Ui.png)

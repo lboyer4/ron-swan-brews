@@ -23,14 +23,6 @@ export const BreweryHolder = (props) => {
   let randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
 	let quote = props.quotes[randomNum];
 
-// 	return (
-// 		<section className="card-holder">
-// 			<h1 className='quote'>"{quote}"</h1>
-// 				{showCard}
-// 		</section>
-// 	)
-// };
-
 	return (
 		<section className="card-holder">
 			<h1 className='quote'>"{quote}"</h1>

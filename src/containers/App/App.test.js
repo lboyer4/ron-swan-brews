@@ -60,9 +60,12 @@ describe('App', () => {
 			wrapper.instance().handleBreweries();
 		
 			expect(fetchData).toHaveBeenCalledWith(mockUrl)
-		})
+		});
+	});
 
-		it('should return breweries with correct props', () => {
+
+	describe('addFavorite', () => {
+		it('should call setBreweries with correct props', () => {
 			const noFavoriteBreweries = {	
 				name: 'NOMNOM',
 				brewery_type: 'micro',
@@ -73,7 +76,7 @@ describe('App', () => {
 			}
 			wrapper.instance().addFavorite([noFavoriteBreweries])
 			expect(mockSetBreweries).toHaveBeenCalledWith([favoriteBreweries])
-		})
+		});
 	});
 
 	describe('handleQuotes', () => {

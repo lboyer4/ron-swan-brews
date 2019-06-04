@@ -18,10 +18,14 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint src/**/*.js --ignore-pattern node_modules/ --ignore-pattern src/serviceWorker.js"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "airbnb"
+    ]
   },
   "browserslist": {
     "production": [
@@ -38,7 +42,8 @@
   "devDependencies": {
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.13.2",
-    "enzyme-to-json": "^3.3.5"
+    "enzyme-to-json": "^3.3.5",
+    "eslint-config-airbnb": "^17.1.0"
   },
   "jest": {
     "snapshotSerializers": [

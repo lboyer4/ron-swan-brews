@@ -40,6 +40,25 @@ describe('BreweryHolder', () => {
 	});
 
 	describe('mapStateToProps', () => {
+		it('should return a object with a breweries array, a quotes array, and a search string', () => {
+
+			const mockState = {
+				breweries: ['one', 'two'],
+				quotes: ['to be', 'not to be'],
+				search: 'Denver'
+			}
+
+			const expected = {
+				breweries: ['one', 'two'],
+				quotes: ['to be', 'not to be'],
+				search: 'Denver'
+			}
+
+			const mappedProps = mapStateToProps(mockState)
+
+			expect(mappedProps).toEqual(expected)
+		})
+
 		it('should return a breweries object', () => {
 			const mockState = {
 				breweries: { breweries: mockBreweries }

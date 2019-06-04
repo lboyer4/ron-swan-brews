@@ -4,11 +4,6 @@ import './_Card.scss';
 import PropTyes from 'prop-types';
 
 class Card extends Component{
-	constructor() {
-		super();
-		this.state = {
-		}
-	}
 	render(props){
 		const { name, id } = this.props;
 		return (

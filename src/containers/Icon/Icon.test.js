@@ -36,8 +36,14 @@ describe('Icon', () => {
 
 	describe('mapStateToProps', () => {
 		it('should return a props array of quotes', () => {
-			const mockState = {quotes: ['quote1', 'quote2']}
-			const expected = {quotes: ['quote1', 'quote2']}
+			const mockState = {
+				breweries: ['one', 'two'],
+				quotes: ['to be', 'not to be'],
+				search: 'Denver'
+			}
+			const expected = {
+				quotes: ['to be', 'not to be'],
+			}
 			const mappedProps = mapStateToProps(mockState)
 
 			expect(mappedProps).toEqual(expected);

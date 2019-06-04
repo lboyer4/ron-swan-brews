@@ -11,10 +11,13 @@ view app in browser with `npm start`
 
 ### Screenshots 
 ![Image of desktop version showall cards feature](./src/utils/images/Show-All.png)
+Image of desktop version showall cards feature
 ![Image of desktop version of show specific card feature](./src/utils/images/ShowCard.png)
+Image of desktop version of show specific card feature
 
 ### Wireframe
 ![image of the UI wireframe](./src/utils/images/Wire-Frame-Ui.png)
+image of the UI wireframe
 
 ### Learning Goals
 

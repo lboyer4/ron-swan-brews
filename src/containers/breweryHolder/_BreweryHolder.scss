@@ -2,7 +2,7 @@ section {
 	height: 700px;
 	display: flex;
 	flex-wrap: wrap;
-	overflow: scroll;
+	overflow-y: scroll;
 	background-image: url('../../utils/images/paddling.png');
 	background-size: cover;
 	justify-content: center;

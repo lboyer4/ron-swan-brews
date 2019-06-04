@@ -7,13 +7,6 @@ import { setSearch } from '../../actions';
 import PropTypes from 'prop-types';
 
 export class Icon extends Component {
-	constructor() {
-		super();
-		this.state = {
-
-		}
-	}
-
 	clearSearch = () => {
 		const clear = ''
 		this.props.setSearch(clear)

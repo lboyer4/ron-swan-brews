@@ -5,13 +5,6 @@ import { toggleFavorite } from '../../actions';
 import PropTypes from 'prop-types';
 
 export class BreweryDetails extends Component {
-	constructor() {
-		super()
-		this.state = {
-
-		}
-	}
-
 	handleFavorite = () => {
 		this.props.toggleFavorite(this.props.id)
 	}

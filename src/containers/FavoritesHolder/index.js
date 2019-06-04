@@ -9,6 +9,7 @@ export const FavoritesHolder = (props) => {
       return <Card {...brewery} key={brewery.id} />
     };
   });
+
   return(
     <section className='main'>
       <section className='image-container'>
@@ -19,7 +20,8 @@ export const FavoritesHolder = (props) => {
 };
 
 export const mapStateToProps = (state) => ({
-  breweries: state.breweries
+  breweries: state.breweries,
+  search: state.search
 });
 
 export default connect(mapStateToProps)(FavoritesHolder);

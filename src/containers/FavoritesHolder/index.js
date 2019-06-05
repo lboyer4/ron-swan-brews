@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Card from '../../components/Card';
 import PropTypes from 'prop-types';
+import './_FavoritesHolder.scss';
 
 export const FavoritesHolder = (props) => {
   const favorite = props.breweries.reduce((acc, brewery) => {
@@ -11,9 +12,7 @@ export const FavoritesHolder = (props) => {
     return acc
   }, []);
 
-  let message = !favorite.length && <h1>You have no favorites... Yet!! </h1>
-
-  console.log('this is a favorite', favorite)
+  let message = favorite.length ? <h1 className='no-favorites'> Ron Swanson Welcomes You To Your Favorite Breweries. </h1> : <h1 className='no-favorites'>You have no favorites... Yet!! </h1>
 
   return(
     <section className='main'>

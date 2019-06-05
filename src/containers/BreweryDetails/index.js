@@ -6,15 +6,14 @@ import PropTypes from 'prop-types';
 
 export class BreweryDetails extends Component {
 	handleFavorite = () => {
-		this.props.toggleFavorite(this.props.id)
-	}
+		this.props.toggleFavorite(this.props.id);
+	};
 
 	render() {
-		const { name, brewery_type, city, street, phone, favorited } = this.props
+		const { name, brewery_type, city, street, phone, favorited } = this.props;
 		let favText = favorited ? 'Unfavorite' : 'Favorite';
 		
-		return (
-			
+		return (	
 			<section>
 			<div className={favorited ? "favorited" : "big-card"} >
 				<h1>{name}</h1>
@@ -25,13 +24,13 @@ export class BreweryDetails extends Component {
 				<button className="favorite-btn" onClick={this.handleFavorite}>{favText}</button>
 			</div>
 			</section>
-		)
-	}
-}
+		);
+	};
+};
 
 export const mapDispatchToProps = (dispatch) => ({
 	toggleFavorite: (id) => dispatch(toggleFavorite(id))
-})
+});
 
 export default connect(null, mapDispatchToProps)(BreweryDetails);
 
@@ -44,4 +43,4 @@ BreweryDetails.propTypes = {
 	phone: PropTypes.string,
 	street: PropTypes.string,
 	toggleFavorite: PropTypes.func
-}
+};

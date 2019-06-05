@@ -14,15 +14,15 @@ import FavoritesHolder from '../FavoritesHolder';
 export class App extends Component {
 	
 	componentDidMount = () => {
-		this.handleBreweries()
-		this.handleQuotes()
-  	}
+		this.handleBreweries();
+		this.handleQuotes();
+  	};
 
 	handleBreweries = () => {
 		const url = 'https://api.openbrewerydb.org/breweries?by_state=colorado'
 		fetchData(url)
-		.then(breweries => this.addFavorite(breweries))
-	}
+		.then(breweries => this.addFavorite(breweries));
+	};
 
 	addFavorite = (breweries) => {
 		let newBrews = breweries.map(brewery => {
@@ -35,16 +35,16 @@ export class App extends Component {
 				phone: brewery.phone,
 				favorited: false
 			}
-		})
-		this.props.setBreweries(newBrews)
-	}
+		});
+		this.props.setBreweries(newBrews);
+	};
 
 
 	handleQuotes = () => {
 		const url = 'https://ron-swanson-quotes.herokuapp.com/v2/quotes/30';
 		fetchData(url)
-		.then(quotes => this.props.setQuotes(quotes))
-	}
+		.then(quotes => this.props.setQuotes(quotes));
+	};
 
 	render() {
 		return(
@@ -86,16 +86,16 @@ export class App extends Component {
 			</div>
 		)
 	}
-}
+};
 
 export const mapStateToProps = (state) => ({
 	breweries: state.breweries
-})
+});
 
 export const mapDispatchToProps = (dispatch) => ({
 	setBreweries: (breweries) => dispatch(setBreweries(breweries)),
 	setQuotes: (quotes) => dispatch(setQuotes(quotes))
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
 
@@ -103,4 +103,4 @@ App.propTypes = {
 	breweries: PropTypes.array,
 	setBreweries: PropTypes.func,
 	setQuotes: PropTypes.func
-}
+};

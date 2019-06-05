@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from '../Card';
+import Card from '../../components/Card';
 import { connect } from 'react-redux';
 import './_BreweryHolder.scss';
 import PropTypes from 'prop-types';
@@ -10,14 +10,14 @@ export const BreweryHolder = (props) => {
 		displayCards = props.breweries.map(brewery => {
 			return <Card {...brewery} key={brewery.id}/>
 		})
-		} else {
-			displayCards = props.breweries.reduce((acc, brewery) => {
-				if(brewery.city === props.search) {
-					acc.push(<Card {...brewery} key={brewery.id} />)
-				}
-				return acc;
-			}, [])
-		}
+	} else {
+		displayCards = props.breweries.reduce((acc, brewery) => {
+			if(brewery.city === props.search) {
+				acc.push(<Card {...brewery} key={brewery.id} />)
+			}
+			return acc;
+		}, [])
+	};
 
 	let min = Math.ceil(1);
   let max = Math.floor(30);

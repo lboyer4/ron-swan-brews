@@ -1,5 +1,5 @@
 ### Description
-This project is crafted to allow a user to search, view, and favorite Colorado breweries brought in via API, while giving a whimsical feature of randomized Ron Swanson quotes.
+This project my Turing Mod3 final project, crafted to allow a user to search, view, and favorite Colorado breweries brought in via API, while giving a whimsical feature of randomized Ron Swanson quotes. It was required to use and include React, Redux, an API, and testing.
 
 ### Installation
 

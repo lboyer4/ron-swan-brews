@@ -1,5 +1,6 @@
 ### Description
-This project my Turing Mod3 final project, crafted to allow a user to search, view, and favorite Colorado breweries brought in via API, while giving a whimsical feature of randomized Ron Swanson quotes. It was required to use and include React, Redux, an API, and testing.
+This project was my Turing Mod3 final project. Ron Swan Brews is crafted to allow a user to search, view, and favorite Colorado breweries. All data was brought in via pre-made API. This app gives the user the whimsical feature of a randomized Ron Swanson quote while allowing them to search for a brewery in the Colorado area. 
+It was required to use and include React, Redux, an API, and testing.
 
 ### Installation
 
